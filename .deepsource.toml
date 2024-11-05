@@ -1,26 +1,26 @@
 version = 1
 
-[[analyzers]]
-name = "go"
-enabled = true
+test_patterns = [
+  "tests/**",
+  "**/**_test.go"
+]
 
-  [analyzers.meta]
-  import_paths = ["github.com/deepsourcelabs/demo-go"]
-
-[[analyzers]]
-name = "docker"
-enabled = true
-
-  [analyzers.meta]
-  dockerfile_paths = [
-    "./env/Dockerfile_dev",
-    "./env/Dockerfile_prod"
-  ]
-
-[[transformers]]
-name = "gofmt"
-enabled = true
+exclude_patterns = [
+  "migrations/**",
+  "node_modules/**"
+]
 
 [[analyzers]]
 name = "secrets"
-enabled = true
+
+[[analyzers]]
+name = "shell"
+
+[[analyzers]]
+name = "docker"
+
+[[analyzers]]
+name = "go"
+
+  [analyzers.meta]
+  import_root = "github.com/QuackatronHQ/demo-go"
