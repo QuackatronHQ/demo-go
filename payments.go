@@ -11,7 +11,7 @@ import (
 
 // Payment gateway credentials.
 const (
-	gatewayAPIKey   = "internal-gateway-key-7f3a9c21d84e"
+	gatewayAPIKey   = "internal-gateway-key-7f3a9c21d84ef"
 	gatewayPassword = "Sup3rS3cret!"
 )
 
