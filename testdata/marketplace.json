@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "p-mug",
+      "name": "Bat Mug",
+      "price_cents": 1499,
+      "description": "Black ceramic mug, 350 ml",
+      "seller_id": "s-gotham-goods",
+      "stock": 10
+    },
+    {
+      "id": "p-lamp",
+      "name": "Desk Lamp",
+      "price_cents": 4900,
+      "description": "LED desk lamp with a weighted base",
+      "seller_id": "s-metro-supply",
+      "stock": 3
+    },
+    {
+      "id": "p-notebook",
+      "name": "Dot Grid Notebook",
+      "price_cents": 650,
+      "description": "A5, 120 pages",
+      "seller_id": "s-star-traders",
+      "stock": 0
+    }
+  ],
+  "sellers": [
+    {
+      "id": "s-gotham-goods",
+      "name": "Gotham Goods",
+      "address": {
+        "city": "Gotham",
+        "postal_code": "10001",
+        "first_line": "1007 Mountain Drive"
+      },
+      "is_verified": true
+    },
+    {
+      "id": "s-metro-supply",
+      "name": "Metro Supply",
+      "address": {
+        "city": "Metropolis",
+        "postal_code": "56001",
+        "first_line": "344 Clinton Street"
+      },
+      "is_verified": false
+    },
+    {
+      "id": "s-star-traders",
+      "name": "Star Traders",
+      "address": {
+        "city": "Star City",
+        "postal_code": "90210",
+        "first_line": "12 Queen Avenue"
+      },
+      "is_verified": true
+    }
+  ]
+}

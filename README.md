@@ -29,3 +29,35 @@ This repository demonstrates sample issues in Go code raised by DeepSource.
 ### Documentation
 
 [https://deepsource.io/docs/analyzer/go.html](https://deepsource.io/docs/analyzer/go.html)
+
+### Marketplace API
+
+`main.go` runs a small marketplace HTTP API backed by a JSON file. It needs Go 1.22 or later.
+
+```sh
+make run    # serves on :8080 with the seed catalog in testdata/
+make test
+```
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `PORT` | `8080` | Listen port |
+| `DATA_PATH` | `data/marketplace.json` | Catalog file |
+| `MARKETPLACE_API_KEY` | none, required | Bearer token for `PATCH /products/{id}` and `POST /orders` |
+| `SHUTDOWN_TIMEOUT` | `10s` | Graceful shutdown limit |
+| `COUPONS` | empty | `CODE=PERCENT` pairs, for example `SPRING10=10,VIP=25` |
+
+| Route | Auth | Description |
+|-------|------|-------------|
+| `GET /healthz` | no | Liveness check |
+| `GET /products?offset=&limit=` | no | Page of products, 50 per page by default, 200 at most |
+| `GET /products/{id}` | no | One product |
+| `PATCH /products/{id}` | yes | Change name, price, description or stock |
+| `GET /sellers?city=` | no | Sellers, optionally filtered by city |
+| `POST /orders` | yes | Place an order and take stock |
+
+```sh
+curl -X POST localhost:8080/orders \
+  -H 'Authorization: Bearer dev-key' \
+  -d '{"lines":[{"product_id":"p-mug","quantity":2}],"coupon":"SPRING10"}'
+```
